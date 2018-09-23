@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A simple tutorial on recreating Flappy Bird in the Unity game engine">
+  <meta name="author" content="Jonathan Chen">
+  
+  <title>Unity Flappy Bird Tutorial</title>
+  
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  
+  <!-- Custom styles for this template -->
+  <link href="css/grayscale.min.css" rel="stylesheet">
+  <link href="css/desert.css" rel="stylesheet">
+  
+</head>
+
+<body id="page-top">
+  
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Unity Flappy Bird Tutorial</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#editor">Editor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#flappybird">Flappy Bird</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase">Unity Tutorial</h1>
+        <h2 class="text-white-50 mx-auto mt-4">This tutorial website briefly introduces the various parts of the Unity game engine.</h2>
+        <h2 class="text-white-50 mx-auto">Steps are then provided to set up a basic Flappy Bird game from scratch.</h2>
+        <h2 class="text-white-50 mx-auto mb-4">Some basic coding experience may be needed to follow along.</h2>
+        <a href="#editor" class="btn btn-primary js-scroll-trigger">Get Started</a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Editor Section -->
+  <section id="editor" class="projects-section bg-light">
+    <div class="container">
+      
+      <!-- Overview Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/editor-overview.jpg" alt="">
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Overview</h4>
+            <p class="text-black-50 mb-0">The Unity editor is made up of various tabbed windows that can be rearranged as you see fit.</p>
+            <br>
+            <p class="text-black-50 mb-0">The most commonly used windows are covered below.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hierarchy Window Row -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="img/editor-hierarchy.jpg" alt="">
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Hierarchy Window</h4>
+                <p class="mb-0 text-white-50">Every object in your Unity game is a GameObject. This includes characters, items, cameras, and more.</p>
+                <br>
+                <p class="mb-0 text-white-50">The hierarchy window shows the relationships between these GameObjects in a fashion similar to a file tree. An object indented beneath another object represents a parent-child relationship.</p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Scene View Row -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="img/editor-scene.jpg" alt="">
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Scene View</h4>
+                <p class="mb-0 text-white-50">Every GameObject in Unity is positioned in 3D space. This applies to 2D games as well.</p>
+                <br>
+                <p class="mb-0 text-white-50">The scene view allows you to view and navigate this space, as well as edit any GameObjects within it.</p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Inspector Window Row -->
+      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="img/editor-inspector.jpg" alt="">
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-left">
+                <h4 class="text-white">Inspector Window</h4>
+                <p class="mb-0 text-white-50">GameObjects need components in order to function in a specific way.</p>
+                <br>
+                <p class="mb-0 text-white-50">The inspector window allows you to see and edit the components of the currently selected GameObject. Each component may have its own settings to edit.</p>
+                <hr class="d-none d-lg-block mb-0 ml-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Project Window Row -->
+      <div class="row justify-content-center no-gutters">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="img/editor-project.jpg" alt="">
+        </div>
+        <div class="col-lg-6 order-lg-first">
+          <div class="bg-black text-center h-100 project">
+            <div class="d-flex h-100">
+              <div class="project-text w-100 my-auto text-center text-lg-right">
+                <h4 class="text-white">Project Window</h4>
+                <p class="mb-0 text-white-50">The project window displays any files (such as images or scripts) that can be used in your project.</p>
+                <hr class="d-none d-lg-block mb-0 mr-0">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- Flappy Bird Header -->
+  <section id="flappybird" class="signup-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-8 mx-auto text-center">
+          
+          <i class="far fa-edit fa-2x mb-3 text-white"></i>
+          <h2 class="text-white mb-5">Flappy Bird Setup</h2>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Flappy Bird Section -->
+  <section class="contact-section bg-black">
+    <div class="container">
+      
+      <div class="row mb-5">
+        <div class="col-lg-4 mx-auto my-auto text-center">
+          <h3 class="text-white-50 mb-4">Creating the Project</h3>
+          <ul class="text-white-50 text-left">
+            <li class="mb-3">Launch the Unity editor and hit "New" in the top right corner</li>
+            <li class="mb-3">Unity version 2018.2.6f1 is used in this tutorial, though newer versions should work just as well</li>
+            <li class="mb-3">Template should be set to "2D", as we are creating a 2D game</li>
+            <li class="mb-3">Hit "Create project" in the bottom right corner to finalize the process</li>
+          </ul>
+        </div>
+        <div class="col-lg-8">
+          <img class="img-fluid" src="img/flappy-new-project.png" alt="">
+        </div>
+      </div>
+      <hr color="white" width="90%">
+      <br>
+      
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <img class="img-fluid" src="img/flappy-import.png" alt="">
+        </div>
+        <div class="col-lg-6 mx-auto my-auto text-center">
+          <h3 class="text-white-50 mb-4">Importing Sprites</h3>
+          <ul class="text-white-50 text-left">
+            <li class="mb-3">Create a Sprites folder in the Assets folder by right clicking in the project window</li>
+            <li>Download the following images:</li>
+            <a href="img/sprites/flappy-background.png">Background</a> | <a href="img/sprites/flappy-bird.png">Bird</a> | <a href="img/sprites/flappy-game-over.png">Game Over</a> | <a href="img/sprites/flappy-pipe.png">Pipe</a>
+            <li class="mt-3 mb-3">Move the images into the Sprites folder so that they can be used in your project</li>
+          </ul>
+        </div>
+      </div>
+      <hr color="white" width="90%">
+      <br>
+      
+      <div class="row">
+        <div class="col-lg-7 mx-auto my-auto text-center">
+          <h3 class="text-white-50 mb-4">Adding a Background</h3>
+          <ul class="text-white-50 text-left">
+            <li class="mb-3">Drag the background image you just imported from the project window into the hierarchy window to automatically create a GameObject</li>
+            <li class="mb-3">Note that the GameObject has a SpriteRenderer component that holds the image; this component is what displays the image in the game</li>
+            <li class="mb-3">Also note the white box in the scene view; this is the area that the Main Camera can "see" and thus only GameObjects in this area are displayed</li>
+            <li class="mb-3">You'll want to scale up the background image so that it covers the entire camera area; copying the transform values to the right should work</li>
+          </ul>
+        </div>
+        <div class="col-lg-5">
+          <img class="img-fluid" src="img/flappy-background-scale.png" alt="">
+        </div>
+      </div>
+      
+      <div class="row mb-5">
+        <div class="col-lg-12">
+          <img class="img-fluid" src="img/flappy-background.png" alt="">
+        </div>
+      </div>
+      <hr color="white" width="90%">
+      <br>
+      
+      <div class="row mb-5">
+        <div class="col-lg-4 mx-auto my-auto text-center">
+          <h3 class="text-white-50 mb-4">Adding Flappy Bird</h3>
+          <ul class="text-white-50 text-left">
+            <li class="mb-3">Now repeat the process with the Flappy Bird image to add a FlappyBird GameObject to the hierarchy</li>
+            <li class="mb-3">To make sure the background is always drawn underneath the bird, set the bird's "Order in Layer" value to 1 through the inspector</li>
+          </ul>
+        </div>
+        <div class="col-lg-8">
+          <img class="img-fluid" src="img/flappy-flappy.png" alt="">
+        </div>
+      </div>
+      <hr color="white" width="90%">
+      <br>
+      
+      <div class="row">
+        <div class="col-lg-6">
+          <img class="img-fluid mb-3" src="img/flappy-script-component.png" alt="">
+          <pre>
+            <code class="prettyprint">
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FlappyBirdController : MonoBehaviour {
+  
+    float velocity = 0;
+
+    void Start() {
+      
+    }
+
+    void Update() {
+        transform.position += Vector3.up * velocity;
+        velocity -= 0.005f;
+        if(Input.GetKeyDown(KeyCode.Space)) {
+          velocity = 0.15f;
+        }
+    }
+}
+            </code>
+          </pre>
+        </div>
+        <div class="col-lg-6 mx-auto my-0 text-center">
+          <img class="img-fluid mb-5" src="img/flappy-script-file.png" alt="">
+          <h3 class="text-white-50 mb-4">Physics and Controls</h3>
+          <ul class="text-white-50 text-left">
+            <li class="mb-3">Adding customized functionality in Unity usually involves adding scripts as components to GameObjects</li>
+            <li class="mb-3">Create a new C# script by right clicking in the project window; we will use this script to add the game logic behind Flappy Bird</li>
+            <li class="mb-3">Drag this newly created script to the inspector window (with the FlappyBird GameObject selected) to add the script as a component as shown</li>
+            <li class="mb-3">Open the script in a text editor of your choice; you should see empty "Start" and "Update" methods created for you by default</li>
+            <li class="mb-3">The "Start" method is called once when the GameObject is created, while the "Update" method is called periodically as the game runs</li>
+            <li class="mb-3">To mimic the effect of gravity, we'll store a "velocity" value that is periodically decreased and used to modify the transform position</li>
+            <li class="mb-3">When space is pressed, we'll reset the velocity to a positive value, allowing the player to jump</li>
+            <li class="mb-3">See the code to the left for a sample implementation</li>
+          </ul>
+        </div>
+      </div>
+      <hr color="white" width="90%">
+      <br>
+      
+      <div class="row">
+        <div class="col-lg-6 mx-auto my-auto text-center">
+          <h3 class="text-white-50 mb-4">Game Over State</h3>
+          <ul class="text-white-50 text-left">
+            <li class="mb-3">When the bird leaves the bottom of the screen, the game should end - the bird should be removed and a "Game Over" sign should appear</li>
+            <li class="mb-3">To accomplish this, first add an inactive GameOver object to the scene (see top image)</li>
+            <li class="mb-3">Make sure to uncheck the box on the top left corner of the inspector to deactivate the GameOver GameObject</li>
+            <li class="mb-3">Also set "Order in Layer" to 1 to make sure the sign is drawn over the background</li>
+            <li>Give the FlappyBird script the ability to activate the GameOver object by adding the following lines to the script</li>
+            <pre>
+              <code class="prettyprint">
+public GameObject GameOverSprite;
+
+void GameOver() {
+    Destroy(gameObject);
+    GameOverSprite.SetActive(true);
+}
+              </code>
+            </pre>
+            <li class="mb-3">To complete this link, drag the GameOver object from the hierarchy window to the "GameOverSprite" slot that you've just created in the script (see bottom image)</li>
+            <li class="mb-3">Finally, modify the FlappyBird's "Update" method to activate the GameOver object when the bird falls off the screen</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <img class="img-fluid mb-4" src="img/flappy-game-over.png" alt="">
+          <img class="img-fluid" src="img/flappy-game-over-link.png" alt="">
+          <pre>
+            <code class="prettyprint">
+void Update() {
+    transform.position += Vector3.up * velocity;
+    velocity -= 0.005f;
+    if(Input.GetKeyDown(KeyCode.Space)) {
+        velocity = 0.15f;
+    }
+    
+    if(transform.position.y < -5) {
+        GameOver();
+    }
+}
+            </code>
+          </pre>
+        </div>
+      </div>
+      <hr color="white" width="90%">
+      <br>
+
+      <h2 class="text-white-50 text-center">(To be continued)</h2>
+      <br>
+
+      <!--
+        <div class="row">
+          
+          <div class="col-md-4 mb-3 mb-md-0">
+            <div class="card py-4 h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Address</h4>
+                <hr class="my-4">
+                <div class="small text-black-50">4923 Market Street, Orlando FL</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-3 mb-md-0">
+            <div class="card py-4 h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-envelope text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Email</h4>
+                <hr class="my-4">
+                <div class="small text-black-50">
+                  <a href="#">hello@yourdomain.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-3 mb-md-0">
+            <div class="card py-4 h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                <h4 class="text-uppercase m-0">Phone</h4>
+                <hr class="my-4">
+                <div class="small text-black-50">+1 (555) 902-8832</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="social d-flex justify-content-center">
+          <a href="#" class="mx-2">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="mx-2">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="mx-2">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      -->
+      
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-black small text-center text-white-50">
+    <div class="container">
+      Copyright &copy; Jonathan Chen 2018
+    </div>
+  </footer>
+  
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+  <!-- Custom scripts for this template -->
+  <script src="js/grayscale.min.js"></script>
+  
+  <!-- Code blocks with syntax highlighting -->
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  
+</body>
+
+</html>
